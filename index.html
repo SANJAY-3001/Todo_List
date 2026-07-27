@@ -3,23 +3,27 @@
     <head>
         <title>ToDo List</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
     </head>
 
     <body>
 
         <div class="todo-main">
-            <h2>MONDAY, JULY 27</h2>
-            <h1>TODAY</h1>
-            <p>2 tasks remaining</p>
-            <input type="text" placeholder="Add a new task">
-            <button>+ Add</button>
+            <p class="date-time">MONDAY, JULY 27</p>
+            <h1 class="today-el">Today</h1>
+            <p class="task-no">2 tasks remaining</p>
 
-            <div class="navbar">
-                <ul>
-                    <li>All</li>
-                    <li>Active</li>
-                    <li>Done</li>
-                </ul>
+            <div class="add-task">
+                <input class="task-input" type="text" placeholder="Add a new task...">
+                <button class="btn">+ Add</button>
+            </div>  
+
+            <div class="progress">
+                <button class="progress-btn">All (2)</button >
+                <button class="progress-btn">Active (2)</button>
+                <button class="progress-btn">Done (2)</button>
             </div>
 
             <ul class="tasks">

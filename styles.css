@@ -1,0 +1,113 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.todo-main
+{
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+    margin: 20px auto 0px auto;
+}
+
+.date-time
+{
+    font-family: "Inter" , sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #8A8578;
+    letter-spacing: 2px;
+}
+
+.today-el
+{
+    font-family: "Roboto Slab" , sans-serif;
+    font-size: 36px;
+    color: #1C1B18;
+    margin-top: 7px;
+}
+
+.task-no
+{
+    font-family: "Inter" , sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #8A8578;
+    margin-top: 4px;
+    letter-spacing: 0.8px;
+}
+
+.add-task
+{
+    margin-top: 40px;
+}
+
+.task-input
+{
+    width: 400px;
+    height: 35px;
+    padding: 10px 14px;
+    font-size: 18px;
+    font-family: "Inter" , sans-serif;
+    border:2px solid #8A8578 ;
+    border-radius: 5px;
+}
+
+input:focus
+{
+    border:2px solid  #D95F2B;
+    outline: none;
+}
+
+.btn
+{
+    width: 100px;
+    height: 60px;
+    padding: 10px 14px;
+    margin-left: 20px;
+    font-family: "Inter" , sans-serif;
+    font-size: 20px;
+    background-color: #D95F2B;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
+
+.progress
+{
+    margin-top: 30px;
+    width: 270px;
+    height: 45px;
+    background-color: #EDEAE3;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+
+}
+
+.progress-btn
+{
+    margin: 3px 10px;
+    font-family: "Inter" , sans-serif;
+    font-size: 18px;
+    background-color: #EDEAE3;
+    color: #8A8578;
+    border: none;
+}
+
+.progress-btn:active
+{
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #1C1B18;
+    margin: 1px;
+}
+
+.tasks
+{
+    margin-top: 30px;
+
+}
