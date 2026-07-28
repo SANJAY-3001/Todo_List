@@ -79,33 +79,39 @@ input:focus
 .progress
 {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    margin-top: 30px;
 }
 
 .buttons
 {
-    margin-top: 30px;
-    width: 270px;
-    height: 45px;
     background-color: #EDEAE3;
-    list-style: none;
     display: flex;
     align-items: center;
-    border-radius: 5px;
-
+    gap: 10px;
+    padding: 8px;
+    border-radius: 8px;
 }
 
 .progress-btn
 {
-    margin: 3px 10px;
+    padding: 10px 18px ;
     font-family: "Inter" , sans-serif;
     font-size: 18px;
-    background-color: #EDEAE3;
+    background-color: transparent;
     color: #8A8578;
     border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-.progress-btn:active
+.progress-btn:hover
+{
+    color: #1C1B18;
+}
+
+.progress-btn.active
 {
     border-radius: 4px;
     background-color: #ffffff;
@@ -115,7 +121,7 @@ input:focus
 
 #clear-el
 {
-    margin: 32px 0px 0px 190px;
+    /* margin: 32px 0px 0px 190px; */
     font-family: "Inter" , sans-serif;
     font-size: 18px;
     background-color: #ffffff;

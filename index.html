@@ -16,20 +16,20 @@
             <p class="task-no">2 tasks remaining</p>
 
             <div class="add-task">
-                <input class="task-input" type="text" placeholder="Add a new task...">
-                <button class="btn">+ Add</button>
+                <input class="task-input" type="text" placeholder="Add a new task..." id="input-el">
+                <button class="btn" id="add-btn">+ Add</button>
             </div>  
 
             <div class="progress">
                 <div class="buttons">
-                    <button class="progress-btn">All (2)</button >
+                    <button class="progress-btn active">All (2)</button >
                     <button class="progress-btn">Active (2)</button>
                     <button class="progress-btn">Done (2)</button>
                 </div>
                 <button  id="clear-el">Clear done</button>
             </div>
 
-            <ul class="tasks">
+            <ul class="tasks" id="ul-el">
                 <li class="task">
                     <input class="check-input" type="checkbox">
                     <span> Task1 for the day.</span>
