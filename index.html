@@ -21,28 +21,29 @@
             </div>  
 
             <div class="progress">
-                <button class="progress-btn">All (2)</button >
-                <button class="progress-btn">Active (2)</button>
-                <button class="progress-btn">Done (2)</button>
+                <div class="buttons">
+                    <button class="progress-btn">All (2)</button >
+                    <button class="progress-btn">Active (2)</button>
+                    <button class="progress-btn">Done (2)</button>
+                </div>
+                <button  id="clear-el">Clear done</button>
             </div>
 
             <ul class="tasks">
                 <li class="task">
-                    <input type="checkbox">
-                    Task1 for the day.
+                    <input class="check-input" type="checkbox">
+                    <span> Task1 for the day.</span>
                 </li>
                 <li class="task">
-                    <input type="checkbox">
+                    <input class="check-input" type="checkbox">
                     Task2 for the day.
                 </li>
             </ul>
 
-            <div class="line"></div>
-
-            <p>
-                2 total tasks
-            </p>
-            <p>0 completed</p>
+            <div class="line">
+                <p>2 total tasks</p>
+                <p>0 completed</p>
+            </div>
         </div>
 
         <script src="scripts.js"></script>

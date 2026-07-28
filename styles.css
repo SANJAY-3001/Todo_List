@@ -6,8 +6,9 @@
 
 .todo-main
 {
-    width: 800px;
-    height: 600px;
+    width: 600px;
+    height: auto;
+    padding: 20px;
     border: 1px solid black;
     margin: 20px auto 0px auto;
 }
@@ -77,6 +78,12 @@ input:focus
 
 .progress
 {
+    display: flex;
+    align-items: center;
+}
+
+.buttons
+{
     margin-top: 30px;
     width: 270px;
     height: 45px;
@@ -106,8 +113,58 @@ input:focus
     margin: 1px;
 }
 
+#clear-el
+{
+    margin: 32px 0px 0px 190px;
+    font-family: "Inter" , sans-serif;
+    font-size: 18px;
+    background-color: #ffffff;
+    color: #8A8578;
+    border: none;
+}
+
+
 .tasks
 {
     margin-top: 30px;
+    list-style: none;
+}
 
+.task
+{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid #8A8578;
+    height: 60px;
+    border-radius: 5px;
+    padding: 0px 20px;
+    margin-bottom: 10px;
+
+    font-family: "Inter" , sans-serif;
+    font-size: 20px;
+    color: #1C1B18;
+}
+
+
+.check-input
+{
+    width: 20px;
+    height: 20px;
+}
+
+.line
+{
+    width: 580px;
+    height: 60px;
+    margin: 30px auto 0px auto;
+    border-top: 1px solid #c1bbad;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    font-family: "Inter" , sans-serif;
+    font-size: 18px;
+    color: #8A8578;
 }
