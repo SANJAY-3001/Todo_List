@@ -1,7 +1,6 @@
 
 
-let tasks = [];
-
+let allTasks = [];
 
 const inputEl = document.getElementById("input-el");
 const addBtn = document.getElementById("add-btn");
@@ -11,7 +10,7 @@ myTasksFromLocalStorage =  JSON.parse(localStorage.getItem("myTasks"));
 
 if(myTasksFromLocalStorage)
 {
-    tasks = myTasksFromLocalStorage;
+    allTasks = myTasksFromLocalStorage;
     renderTasks(tasks);
 }
 
@@ -19,12 +18,24 @@ if(myTasksFromLocalStorage)
 addBtn.addEventListener("click" , function()
 {
     const val = inputEl.value;
+
+    if(val === "") return;
+
     inputEl.value = "";
-    tasks.push(val);
 
-    localStorage.setItem("myTasks" , JSON.stringify(tasks));
+    const task = 
+    {
+        id : Date.now(),
+        text : val,
+        completed : false
+    }
 
-    renderTasks(tasks);
+
+    allTasks.push(task);
+
+    localStorage.setItem("myTasks" , JSON.stringify(allTasks));
+
+    renderTasks(allTasks);
 });
 
 
@@ -34,8 +45,8 @@ function renderTasks(tasks)
 
     for(let i=0;i<tasks.length;i++)
     {
-        listOfTask += `<li class="task"><input class="check-input" type="checkbox">
-        <span> ${tasks[i]}</span>
+        listOfTask += `<li class="task"><input class="check-input" type="checkbox" id = "">
+        <span> ${tasks[i].text}</span>
                 </li>`
     }
 
