@@ -2,6 +2,8 @@
 
 let allTasks = [];
 
+let activeButtonStatus = "";
+
 const inputEl = document.getElementById("input-el");
 const addBtn = document.getElementById("add-btn");
 const ulEl = document.getElementById("ul-el");
@@ -11,7 +13,10 @@ const doneBtn = document.getElementById("done-btn");
 const clearBtn = document.getElementById("clear-btn");
 
 
+
 const buttons = [allBtn , activeBtn , doneBtn];
+
+allBtn.classList.add("active");
 
 
 myTasksFromLocalStorage =  JSON.parse(localStorage.getItem("myTasks"));
@@ -42,7 +47,7 @@ addBtn.addEventListener("click" , function()
 
     localStorage.setItem("myTasks" , JSON.stringify(allTasks));
 
-    renderTasks(allTasks , "ALL");
+    renderTasks(allTasks ,findActiveButton(buttons));
 });
 
 for(let i=0;i<buttons.length;i++)
@@ -57,7 +62,6 @@ for(let i=0;i<buttons.length;i++)
         buttons[i].classList.add("active");
 
         renderTasks(allTasks , buttons[i].textContent);
-        // console.log(buttons[i].textContent);
     });
 }
 
@@ -65,6 +69,22 @@ clearBtn.addEventListener("click",function()
 {
     allTasks = clearTasks(allTasks);
     localStorage.setItem("myTasks" , JSON.stringify(allTasks));
+
+    renderTasks(allTasks , findActiveButton(buttons));
+});
+
+
+
+ulEl.addEventListener("change", function(event) {
+    if (event.target.classList.contains("check-input")) {
+
+        const task = findTasks(allTasks, Number(event.target.id));
+
+        if (task) {
+            task.completed = event.target.checked;
+            localStorage.setItem("myTasks", JSON.stringify(allTasks));
+        }
+    }
 });
 
 
@@ -78,7 +98,8 @@ function renderTasks(tasks , status)
 
         if(status == "All" || status == currStatus)
         {
-            listOfTask += `<li class="task"><input class="check-input" type="checkbox" id = "">
+            listOfTask += `<li class="task"><input class="check-input" type="checkbox" id = ${tasks[i].id}
+            ${tasks[i].completed ? "checked" : ""}>
             <span> ${tasks[i].text}</span>
                     </li>`
         }
@@ -101,4 +122,23 @@ function clearTasks(tasks)
     }
 
     return listOfActiveTasks;
+}
+
+function findTasks(tasks , id)
+{
+    for(let i=0;i<tasks.length;i++)
+    {
+        if(tasks[i].id === id) return tasks[i];
+    }
+}
+
+function findActiveButton(statusButtons)
+{
+    for(let i=0;i<statusButtons.length;i++)
+    {
+        if(statusButtons[i].classList.contains("active"))
+        {
+            return statusButtons[i].textContent;
+        }
+    }
 }

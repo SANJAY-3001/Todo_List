@@ -119,9 +119,8 @@ input:focus
     margin: 1px;
 }
 
-#clear-el
+#clear-btn
 {
-    /* margin: 32px 0px 0px 190px; */
     font-family: "Inter" , sans-serif;
     font-size: 18px;
     background-color: #ffffff;
