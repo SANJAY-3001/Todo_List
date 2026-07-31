@@ -11,9 +11,9 @@
     <body>
 
         <div class="todo-main">
-            <p class="date-time">MONDAY, JULY 27</p>
+            <p class="date-time" id="date-el"></p>
             <h1 class="today-el">Today</h1>
-            <p class="task-no">2 tasks remaining</p>
+            <p class="task-no" id="task-remaining"></p>
 
             <div class="add-task">
                 <input class="task-input" type="text" placeholder="Add a new task..." id="input-el">
@@ -41,9 +41,11 @@
             </ul>
 
             <div class="line">
-                <p>2 total tasks</p>
-                <p>0 completed</p>
+                <p id="tot-tasks"></p>
+                <p id="completed-tasks"></p>
             </div>
+
+            
         </div>
 
         <script src="scripts.js"></script>

@@ -4,6 +4,8 @@ let allTasks = [];
 
 let activeButtonStatus = "";
 
+const dateEl = document.getElementById("date-el");
+const taskRemEl = document.getElementById("task-remaining");
 const inputEl = document.getElementById("input-el");
 const addBtn = document.getElementById("add-btn");
 const ulEl = document.getElementById("ul-el");
@@ -11,21 +13,36 @@ const allBtn = document.getElementById("all-btn");
 const activeBtn = document.getElementById("active-btn");
 const doneBtn = document.getElementById("done-btn");
 const clearBtn = document.getElementById("clear-btn");
+const totalTasksEl = document.getElementById("tot-tasks");
+const completedTasksEl = document.getElementById("completed-tasks");
+
+
+const now = new Date();
+const day = now.toLocaleDateString("en-US" , {weekday : 'long'});
+const month = now.toLocaleDateString("en-US" , {month : 'long'});
+const date = now.toLocaleDateString("en-US" , {day : 'numeric'});
+dateEl.textContent = day + ", " + month+" " +date ;
 
 
 
 const buttons = [allBtn , activeBtn , doneBtn];
-
 allBtn.classList.add("active");
 
 
-myTasksFromLocalStorage =  JSON.parse(localStorage.getItem("myTasks"));
 
+myTasksFromLocalStorage =  JSON.parse(localStorage.getItem("myTasks"));
 if(myTasksFromLocalStorage)
 {
     allTasks = myTasksFromLocalStorage;
     renderTasks(allTasks , "All");
 }
+
+
+
+remainingTask(allTasks);
+totalTasks(allTasks);
+completedTasks(allTasks);
+
 
 
 addBtn.addEventListener("click" , function()
@@ -48,6 +65,8 @@ addBtn.addEventListener("click" , function()
     localStorage.setItem("myTasks" , JSON.stringify(allTasks));
 
     renderTasks(allTasks ,findActiveButton(buttons));
+    remainingTask(allTasks);
+    totalTasks(allTasks);
 });
 
 for(let i=0;i<buttons.length;i++)
@@ -71,6 +90,8 @@ clearBtn.addEventListener("click",function()
     localStorage.setItem("myTasks" , JSON.stringify(allTasks));
 
     renderTasks(allTasks , findActiveButton(buttons));
+    totalTasks(allTasks);
+    completedTasks(allTasks);
 });
 
 
@@ -83,6 +104,9 @@ ulEl.addEventListener("change", function(event) {
         if (task) {
             task.completed = event.target.checked;
             localStorage.setItem("myTasks", JSON.stringify(allTasks));
+
+            remainingTask(allTasks);
+            completedTasks(allTasks);
         }
     }
 });
@@ -141,4 +165,34 @@ function findActiveButton(statusButtons)
             return statusButtons[i].textContent;
         }
     }
+}
+
+
+function remainingTask(tasks)
+{
+    let cnt = 0;
+    for(let i=0;i<tasks.length;i++)
+    {
+        if(!tasks[i].completed)
+        {
+            cnt++;
+        }
+    }
+
+    taskRemEl.textContent =  cnt + " tasks remaining";
+    return cnt;
+}
+
+function totalTasks(tasks)
+{
+    totalTasksEl.textContent = tasks.length + " total tasks";
+    return tasks.length;
+}
+
+function completedTasks(tasks)
+{
+    const remCount = remainingTask(tasks);
+    const totCount = totalTasks(tasks);
+
+    completedTasksEl.textContent = totCount - remCount + " completed";
 }
