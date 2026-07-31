@@ -151,6 +151,20 @@ input:focus
     color: #1C1B18;
 }
 
+.task span
+{
+    flex : 1;
+}
+
+.task i{
+    font-size: 20px;
+    cursor: pointer;
+    color: #8A8578;
+}
+.task i:hover
+{
+    color: #363635;
+}
 
 .check-input
 {

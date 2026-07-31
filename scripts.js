@@ -125,6 +125,7 @@ function renderTasks(tasks , status)
             listOfTask += `<li class="task"><input class="check-input" type="checkbox" id = ${tasks[i].id}
             ${tasks[i].completed ? "checked" : ""}>
             <span> ${tasks[i].text}</span>
+            <i class="fa-solid fa-trash-can"></i>
                     </li>`
         }
     }
