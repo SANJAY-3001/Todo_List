@@ -111,6 +111,28 @@ ulEl.addEventListener("change", function(event) {
     }
 });
 
+ulEl.addEventListener("click" , function(event)
+{
+    if(event.target.classList.contains("delete-icon"))
+    {
+        for(let i=0;i<allTasks.length;i++)
+        {
+            if(allTasks[i].id === Number(event.target.id))
+            {
+                allTasks.splice(i , 1);
+                break;
+            }
+        }
+
+        localStorage.setItem("myTasks" , JSON.stringify(allTasks));
+
+        renderTasks(allTasks , findActiveButton(buttons));
+        totalTasks(allTasks);
+        completedTasks(allTasks);
+
+    }
+})
+
 
 function renderTasks(tasks , status)
 {
@@ -125,7 +147,7 @@ function renderTasks(tasks , status)
             listOfTask += `<li class="task"><input class="check-input" type="checkbox" id = ${tasks[i].id}
             ${tasks[i].completed ? "checked" : ""}>
             <span> ${tasks[i].text}</span>
-            <i class="fa-solid fa-trash-can"></i>
+            <i class="fa-solid fa-trash-can delete-icon" id = "${tasks[i].id}"></i>
                     </li>`
         }
     }
